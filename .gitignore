@@ -7,7 +7,7 @@
 .env
 
 #Script backups
-.scripts.js
+scripts.js
 
 ### macOS ###
 # General
