@@ -11,3 +11,11 @@ $("#download").click(async function () {
   let res = await download.json();
   console.log(res);
 });
+
+// client side fetch call to get images
+let getImages = await fetch(
+  `https://api.unsplash.com/search/photos?client_id=${UNSPLASH_API_KEY}&page=${pageNumber}&per_page=30&query=${query}>`,
+  {
+    method: "GET",
+  }
+);

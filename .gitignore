@@ -6,6 +6,9 @@
 #api keys
 .env
 
+#Script backups
+.scripts.js
+
 ### macOS ###
 # General
 .DS_Store

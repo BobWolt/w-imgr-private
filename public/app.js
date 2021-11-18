@@ -82,12 +82,17 @@ $(document).ready(function () {
   let pageNumber = 1;
   // Get images on search query
   const loadImages = async function (query, id) {
-    let getImages = await fetch(
-      `https://api.unsplash.com/search/photos?client_id=cNlSmrvPU2c8D2g26mR8gtxLY5h0Z6WCcTBmbAsPW0Y&page=${pageNumber}&per_page=30&query=${query}>`,
+    /* let getImages = await fetch(
+      `https://api.unsplash.com/search/photos?client_id=${UNSPLASH_API_KEY}&page=${pageNumber}&per_page=30&query=${query}>`,
       {
         method: "GET",
       }
-    );
+    ); */
+    console.log("pagenumber", pageNumber);
+    let getImages = await fetch(`http://localhost:3000/unsplash`, {
+      method: "GET",
+      headers: { query: query, page: pageNumber },
+    });
 
     let res = await getImages.json();
     console.log("response", res);
@@ -99,6 +104,7 @@ $(document).ready(function () {
 
   // closing the modal
   const closeModalLogic = function () {
+    pageNumber = 1;
     $(".modal_wrapper").removeClass("modal_animation");
     $(".modal_wrapper").addClass("modal_animation_remove");
     activeModal = false;
