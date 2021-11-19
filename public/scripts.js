@@ -1,4 +1,4 @@
-// call to trigger download event - needed for full API access
+/* // call to trigger download event - needed for full API access
 $(".download_test").attr("src", imgArr[0].urls.full);
 $("#download").attr("href", imgArr[0].links.download_location);
 $("#download").click(async function () {
@@ -19,3 +19,4 @@ let getImages = await fetch(
     method: "GET",
   }
 );
+ */

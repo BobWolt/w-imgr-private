@@ -14,7 +14,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/unsplash", async (req, response) => {
+app.get("/api/unsplash", async (req, response) => {
   console.log(req.headers.pageNumber);
   axios
     .get(
@@ -28,6 +28,11 @@ app.get("/unsplash", async (req, response) => {
     .catch((err) => {
       console.log("Error: ", err.message);
     });
+});
+
+app.get("/test", async (req, response) => {
+  console.log(req);
+  response.send("test");
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
