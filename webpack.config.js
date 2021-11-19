@@ -33,7 +33,6 @@ module.exports = (env) => {
         : [new UglifyJsPlugin()],
       module: {
         rules: [
-          { test: /\.html$/i, use: "html-loader" },
           {
             test: /\.css$/i,
             use: [
