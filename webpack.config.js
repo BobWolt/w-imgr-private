@@ -22,7 +22,7 @@ module.exports = (env) => {
         https: false,
         open: true,
         hot: true,
-        port: 3000,
+        port: 5000,
         proxy: {},
       },
       plugins: isDevBuild
