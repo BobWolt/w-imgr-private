@@ -34,6 +34,9 @@ module.exports = (env) => {
       module: {
         rules: [
           {
+            exclude: /\.html$/,
+          },
+          {
             test: /\.css$/i,
             use: [
               "style-loader",
