@@ -1,3 +1,25 @@
+function ensureJquery(readyCallback) {
+  if (window.jQuery === undefined || parseFloat(window.jQuery.fn.jquery) < 1.9) {
+      var js = document.createElement('script');
+      js.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js";
+      if (js.readyState)
+          js.onreadystatechange = function () {
+              if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                  jQueryLoadHandler();
+              }
+          };
+      else
+          js.onload = jQueryLoadHandler;
+      (document.getElementsByTagName('head')[0] || document.documentElement).appendChild(js);
+  } else {
+      readyCallback(window.jQuery);
+  }
+
+  function jQueryLoadHandler() {
+      readyCallback(window.jQuery.noConflict(true));
+  }
+}
+
 $(document).ready(function () {
   const proxy = "https://w-imgr-proxy.herokuapp.com/";
   // state variable to watch active modal
